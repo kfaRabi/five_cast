@@ -7,7 +7,14 @@ class CityList extends React.Component {
     super(props);
   }
 
+  // <th> Temp </th>
+	 //      					<th> Pressure </th>
+	 //      					<th> Humidity </th>
   render() {
+  	console.log(this.props);
+  	if(!this.props.weather.length){
+  		return <div>Wait....</div>;
+  	}
     return (
     	<div className="row">
     		<div className="col m12">
@@ -15,11 +22,16 @@ class CityList extends React.Component {
 	      			<thead>
 	      				<tr>
 	      					<th> City </th>
-	      					<th> Temp </th>
-	      					<th> Pressure </th>
-	      					<th> Humidity </th>
+	      					
 	      				</tr>
 	      			</thead>
+	      			<tbody>
+	      				{
+	      					this.props.weather.map(
+	      						ct => {return <tr><td> {ct}</td></tr>}
+	      					)
+	      				}
+	      			</tbody>
 	      		</table>
 	      	</div>
      	</div>
@@ -27,9 +39,9 @@ class CityList extends React.Component {
   }
 }
 
-function mapStateToProps({reduxState}){
-	// return {weather: reduxState.weather};
-	return {};
+function mapStateToProps({weather}){
+	return {weather};
+	// return {};
 }
 
 export default connect(mapStateToProps, null)(CityList);
