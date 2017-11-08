@@ -30,7 +30,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="row hasMargin">
       	<form className="col m12" onSubmit={e => this.onFormSubmit(e)}>
       		<div className="row">
 	      		<div className="input-field col m10">

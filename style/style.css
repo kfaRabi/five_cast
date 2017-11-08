@@ -1,0 +1,23 @@
+/*search_bar*/
+.hasMargin{
+	margin: 10px 0 20px 0;
+}
+
+/*table cells*/
+th, td {
+	vertical-align: center !important;
+	text-align: center !important;
+}
+td div p{
+	font-size: xx-small;
+}
+
+/*charts*/
+svg {
+	height: 150px;
+}
+/*preamble*/
+div h1 {
+	text-align: center;
+	vertical-align: center;
+}

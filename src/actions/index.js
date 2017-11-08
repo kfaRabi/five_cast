@@ -8,7 +8,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER'
 // for old package.json use export default..
 // for updated package.json just use export
 export function fetchWeatherData(CITY = "dhaka", UNITS = "metric"){
-	console.log("city: ", CITY);
+	// console.log("city: ", CITY);
 	const url = `${API_URL}&q=${CITY},${COUNTRY}&units=${UNITS}`;
 
 	// axios returns a promise that we need to wait and work with
