@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const API_KEY = "88ce2e3459686c39fa68ceea3db4e8a6";
 const COUNTRY = "BD";
 const API_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
@@ -25,4 +24,13 @@ export function fetchWeatherData(CITY = "dhaka", UNITS = "metric"){
 		type: FETCH_WEATHER,
 		payload: requestPromise,
 	};
+}
+
+// create action to hide the error message from 'CityList' Container
+export const HIDE_MESSAGE = "HIDE_MESSAGE";
+export function hideErrorMessage(){
+	return {
+		type: HIDE_MESSAGE,
+		payload: null,
+	}
 }

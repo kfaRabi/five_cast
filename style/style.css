@@ -4,12 +4,16 @@
 }
 
 /*city not found error*/
-div h4 {
-	text-align: center;
-	vertical-align: center;
-}
 #cardPanel {
 	position: relative;
+	height: 100px;
+	text-align: center;
+	/*vertical-align: center;*/
+}
+#cardPanel p{
+	display: inline;
+	font-size: 20px;
+	/*vertical-align: center !important;*/
 }
 #cardPanel a{
 	position: absolute;
