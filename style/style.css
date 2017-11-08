@@ -8,6 +8,12 @@ th, td {
 	vertical-align: center !important;
 	text-align: center !important;
 }
+
+td:first-of-type, td:first-of-type > div {
+	width: 200px;
+	height: 200px;
+}
+
 td div p{
 	font-size: xx-small;
 }

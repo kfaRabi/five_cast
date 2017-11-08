@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import Chart from '../components/chart';
 
+import Chart from '../components/chart';
+import GoogleMap from '../components/google_map';
 
 class CityList extends React.Component {
 
@@ -14,7 +15,8 @@ class CityList extends React.Component {
 
   renderCity(cityData){
   	if(_.has(cityData, "notFound")){
-		return <tr key ={"1233456577899034534543"}><td><div><h1>Sorry, We Could Not Found The City You Entered</h1></div></td></tr>;
+		return;
+    // return <tr key ={"1233456577899034534543"}><td><div><h1>Sorry, We Could Not Found The City You Entered</h1></div></td></tr>;
   	}
   	const cityName = cityData.city.name;
   	const currentForcast = cityData.list[0].main;
@@ -26,10 +28,13 @@ class CityList extends React.Component {
   	const humidities = cityData.list.map(weather => weather.main.humidity);
   	const humidityavg = _.round(_.sum(humidities)/humidities.length);
 
+    const {lat, lon} = cityData.city.coord;
+
+
   	return(
   		<tr key={cityName}>
   			<td>
-  				<div>{cityName}</div>
+  				<GoogleMap lat={lat} lon={lon} />
   			</td>
   			<td>
   				<Chart data={temps} color={"red"} />
