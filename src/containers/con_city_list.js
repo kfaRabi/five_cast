@@ -61,14 +61,46 @@ class CityList extends React.Component {
   	);
   }
 
+  renderCityNotFound(){
+    let cityNotFoundDiv = null;
+    if(this.props.cityNotFound){
+      cityNotFoundDiv = (
+        <div className="col m12">
+          <div className="card-panel teal" id="cardPanel" >
+            <a className="btn-floating"><i className="material-icons">X</i></a>
+            <h4 className="red-text text-darken-4">Sorry, We Could Not Find The City You Entered!
+            <br />
+            Please, Make Sure You Spelled It Correctly And It's A Bangladeshi City.
+            </h4>
+          </div>
+        </div>
+      );
+    }
+    return cityNotFoundDiv;
+  }
+
   render() {
   	// console.log(this.props);
-  	if(!this.props.weather.length){
-  		return <div><h1>Enter A Bangledeshi City Name To Get A Sense Of How The Next Five Days Will Turn Out</h1></div>;
-  	}
+    const cityNotFoundDiv = this.renderCityNotFound();
 
+    if(!this.props.weather.length){
+      return (
+        <div className="row">
+          {cityNotFoundDiv}
+          <div className="col m12">
+            <div className="card-panel teal" >
+              <h1>Enter A Bangledeshi City Name To Get A Glance Of How The Next Five Days Will Turn Out</h1>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // console.log(this.props, cityNotFoundDiv);
+    
     return (
     	<div className="row">
+        {cityNotFoundDiv}
     		<div className="col s12">
 	      		<table className="centered bordered responsive-table highlight">
 	      			<thead>
@@ -89,8 +121,8 @@ class CityList extends React.Component {
   }
 }
 
-function mapStateToProps({weather}){
-	return {weather};
+function mapStateToProps({weather, cityNotFound}){
+	return {weather, cityNotFound};
 	// return {};
 }
 

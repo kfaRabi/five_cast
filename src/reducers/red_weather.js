@@ -20,9 +20,10 @@ export default function(state = [], action) {
 			// otherwise, its probably fine.
 			return [action.payload.data, ...state];
 		}
-		else{
-			return [{notFound: true}];
-		}
+		// else{
+		// 	// return [...state];
+		// 	// return [{notFound: true}];
+		// }
 	}	
 	return state;
 }
